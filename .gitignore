@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C / C++ build outputs
+*.o
+*.obj
+*.exe
+*.bin
+*.hex
+*.elf
+
+# Environment & IDE
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Temporary scratch & logs
+*.log
+scratch/

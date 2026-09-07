@@ -1,0 +1,177 @@
+{
+  "model_name": "Purbavas Multi-Hazard Early Warning Ensemble",
+  "version": "1.0.0",
+  "serialization_format": "Human-Readable JSON",
+  "input_features": {
+    "total_count": 30,
+    "feature_names": [
+      "elevation_m",
+      "water_level_m",
+      "water_level_rate_m_hr",
+      "rainfall_1h_mm",
+      "rainfall_6h_mm",
+      "rainfall_24h_mm",
+      "temperature_c",
+      "humidity_pct",
+      "heat_index_c",
+      "smoke_ppm",
+      "co_ppm",
+      "voc_ppb",
+      "so2_ug_m3",
+      "no2_ug_m3",
+      "pm25",
+      "pm10",
+      "aqi_calculated",
+      "soil_moisture_pct",
+      "vibration_g",
+      "tilt_angle_deg",
+      "water_ph",
+      "water_turbidity_ntu",
+      "dissolved_oxygen_mg_l",
+      "battery_voltage_v",
+      "signal_rssi_dbm",
+      "rain_rate_ratio",
+      "fire_weather_index_proxy",
+      "pm_ratio",
+      "landslide_instability_index",
+      "water_quality_deviance"
+    ]
+  },
+  "hazard_classes": {
+    "total_count": 7,
+    "class_names": [
+      "FLASH_FLOOD",
+      "FOREST_FIRE",
+      "HAZARDOUS_SMOG",
+      "INDUSTRIAL_CHEMICAL_LEAK",
+      "LANDSLIDE_PRECURSOR",
+      "NORMAL",
+      "WATER_QUALITY_CRISIS"
+    ]
+  },
+  "continuous_risk_targets": [
+    "flood_risk_score",
+    "fire_risk_score",
+    "air_pollution_risk_score",
+    "landslide_risk_score",
+    "chemical_hazard_risk_score"
+  ],
+  "supervised_classifier_summary": {
+    "algorithm": "RandomForestClassifier",
+    "n_estimators": 100,
+    "max_depth": 12,
+    "class_weight": "balanced",
+    "total_decision_trees": 100,
+    "feature_importance_ranking": {
+      "dissolved_oxygen_mg_l": 0.066342,
+      "co_ppm": 0.064109,
+      "so2_ug_m3": 0.063436,
+      "landslide_instability_index": 0.062647,
+      "water_quality_deviance": 0.056404,
+      "no2_ug_m3": 0.055575,
+      "rainfall_1h_mm": 0.053628,
+      "aqi_calculated": 0.051121,
+      "water_level_rate_m_hr": 0.050821,
+      "water_level_m": 0.049832,
+      "soil_moisture_pct": 0.049507,
+      "water_turbidity_ntu": 0.048403,
+      "vibration_g": 0.046548,
+      "elevation_m": 0.045152,
+      "pm10": 0.042356,
+      "pm25": 0.041038,
+      "voc_ppb": 0.03908,
+      "smoke_ppm": 0.028054,
+      "rainfall_6h_mm": 0.018865,
+      "humidity_pct": 0.016681,
+      "rainfall_24h_mm": 0.012547,
+      "heat_index_c": 0.010643,
+      "fire_weather_index_proxy": 0.008113,
+      "tilt_angle_deg": 0.007013,
+      "pm_ratio": 0.004972,
+      "rain_rate_ratio": 0.002534,
+      "temperature_c": 0.002317,
+      "water_ph": 0.002247,
+      "signal_rssi_dbm": 1.4e-05,
+      "battery_voltage_v": 0.0
+    }
+  },
+  "unsupervised_anomaly_detector_summary": {
+    "algorithm": "IsolationForest",
+    "n_estimators": 75,
+    "contamination_rate": 0.03,
+    "offset_threshold": -0.5718
+  },
+  "multi_target_risk_regressor_summary": {
+    "algorithm": "RandomForestRegressor",
+    "n_estimators": 80,
+    "max_depth": 10,
+    "top_driving_features_per_hazard": {
+      "flood_risk_score": {
+        "water_level_rate_m_hr": 0.347,
+        "pm10": 0.2442,
+        "rainfall_1h_mm": 0.1991,
+        "dissolved_oxygen_mg_l": 0.0828,
+        "humidity_pct": 0.0628
+      },
+      "fire_risk_score": {
+        "water_level_rate_m_hr": 0.3479,
+        "aqi_calculated": 0.2427,
+        "rainfall_1h_mm": 0.1962,
+        "dissolved_oxygen_mg_l": 0.0807,
+        "so2_ug_m3": 0.062
+      },
+      "air_pollution_risk_score": {
+        "water_level_rate_m_hr": 0.3497,
+        "pm25": 0.2455,
+        "rainfall_1h_mm": 0.1945,
+        "dissolved_oxygen_mg_l": 0.0866,
+        "so2_ug_m3": 0.063
+      },
+      "landslide_risk_score": {
+        "water_level_rate_m_hr": 0.3486,
+        "pm10": 0.2418,
+        "rainfall_1h_mm": 0.2003,
+        "dissolved_oxygen_mg_l": 0.0825,
+        "elevation_m": 0.0614
+      },
+      "chemical_hazard_risk_score": {
+        "water_level_rate_m_hr": 0.3465,
+        "pm10": 0.2491,
+        "rainfall_1h_mm": 0.1991,
+        "water_turbidity_ntu": 0.075,
+        "water_level_m": 0.0673
+      }
+    }
+  },
+  "edge_decision_thresholds": {
+    "FLASH_FLOOD": {
+      "water_level_m_warning_threshold": 5.8,
+      "water_level_rate_m_hr_threshold": 0.9,
+      "rainfall_1h_mm_threshold": 35.0
+    },
+    "FOREST_FIRE": {
+      "smoke_ppm_threshold": 180.0,
+      "co_ppm_threshold": 12.0,
+      "humidity_pct_max_threshold": 35.0
+    },
+    "HAZARDOUS_SMOG": {
+      "pm25_critical_threshold": 180.0,
+      "smoke_ppm_max_threshold": 150.0
+    },
+    "LANDSLIDE_PRECURSOR": {
+      "soil_moisture_pct_threshold": 82.0,
+      "vibration_g_threshold": 0.09,
+      "tilt_angle_deg_threshold": 2.0
+    },
+    "INDUSTRIAL_CHEMICAL_LEAK": {
+      "voc_ppb_threshold": 1500.0,
+      "so2_ug_m3_threshold": 80.0,
+      "no2_ug_m3_threshold": 90.0
+    },
+    "WATER_QUALITY_CRISIS": {
+      "water_ph_acid_bound": 5.4,
+      "water_ph_alkaline_bound": 9.4,
+      "turbidity_ntu_threshold": 140.0
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "evaluation_summary": {
+    "total_test_samples": 6048,
+    "macro_f1_score": 1.0,
+    "weighted_f1_score": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "avg_single_sample_latency_ms": 0.015,
+    "edge_throughput_samples_per_sec": 66812.4
+  },
+  "critical_hazard_safety_audit": {
+    "FLASH_FLOOD": {
+      "total_occurrences": 730,
+      "missed_detections": 0,
+      "false_negative_rate_pct": 0.0
+    },
+    "FOREST_FIRE": {
+      "total_occurrences": 202,
+      "missed_detections": 0,
+      "false_negative_rate_pct": 0.0
+    },
+    "LANDSLIDE_PRECURSOR": {
+      "total_occurrences": 356,
+      "missed_detections": 0,
+      "false_negative_rate_pct": 0.0
+    },
+    "INDUSTRIAL_CHEMICAL_LEAK": {
+      "total_occurrences": 94,
+      "missed_detections": 0,
+      "false_negative_rate_pct": 0.0
+    }
+  },
+  "continuous_risk_regression_metrics": {
+    "flood_risk_score": {
+      "MAE": 0.0,
+      "RMSE": 0.0001
+    },
+    "fire_risk_score": {
+      "MAE": 0.0001,
+      "RMSE": 0.0008
+    },
+    "air_pollution_risk_score": {
+      "MAE": 0.0001,
+      "RMSE": 0.0007
+    },
+    "landslide_risk_score": {
+      "MAE": 0.0001,
+      "RMSE": 0.001
+    },
+    "chemical_hazard_risk_score": {
+      "MAE": 0.0,
+      "RMSE": 0.0002
+    }
+  },
+  "per_class_classification_metrics": {
+    "FLASH_FLOOD": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 730.0
+    },
+    "FOREST_FIRE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 202.0
+    },
+    "HAZARDOUS_SMOG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 283.0
+    },
+    "INDUSTRIAL_CHEMICAL_LEAK": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 94.0
+    },
+    "LANDSLIDE_PRECURSOR": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 356.0
+    },
+    "NORMAL": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4223.0
+    },
+    "WATER_QUALITY_CRISIS": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 160.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6048.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6048.0
+    }
+  }
+}
